@@ -197,4 +197,5 @@ I (14583) DISPLAY: 📊 Data display from file: ./managed_components/lab7_compon
 I (14583) DISPLAY: 📈 Value 1: 30.50
 I (14583) DISPLAY: 📉 Value 2: 65.00
 
+
 ![alt text](7-2no-display.png)
