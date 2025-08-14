@@ -76,3 +76,96 @@ I (15712) SENSOR: 🌡️  Te mperature: 30.9°C
 I (15712) SENSOR: 💧 Humidity: 82.5%
 I (15712) SENSOR: ✅ Sensor status check from file: /project/components/Sensors/sensor.c, line: 30
 I (15712) SENSOR: 📈 All sensors operating normally
+
+
+# โจทย์ท้าทาย
+## 1. สร้าง component ชื่อ Display โดย นำไฟล์ display.c และ display.h จากใบงานที่ 6 มาใช้
+สิ่งที่ต้องมีใน display component
+
+ไฟล์ CMakeLists.txt
+
+ไฟล์ display.h
+
+ไฟล์ display.c
+
+## 2. นำโค้ดจาก main.c ในใบงานที่ 6 มาใช้ แล้ว build พร้อมทดสอบ
+
+ตอบ ผลลัพธ์ทั้งหมดหลังใส่ display และ นำโค้ดจาก main.c ในใบงานที่ 6 มาใช้ ใน Lab7-1.c
+
+root@b35f767591b4:/project/lab7-1_Managed_Local_Component# idf.py qemu monitor
+
+Running qemu on socket://localhost:5555
+
+Adding "qemu"'s dependency "all" to list of commands with default set of options.
+
+Executing action: all (aliases: build)
+
+Running ninja in directory /project/lab7-1_Managed_Local_Component/build
+
+Executing "ninja all"...
+
+[1/4] cd /project/lab7-1_Managed_Local_Component/build/e.../project/lab7-1_Managed_Local_Component/build/lab7-1.bi 
+
+lab7-1.bin binary size 0x28100 bytes. Smallest app partition is 0x100000 bytes. 0xd7f00 bytes (84%) free.
+
+[1/1] cd /project/lab7-1_Managed_Local_Component/build/b..._Managed_Local_Component/build/bootloader/bootloader.bi 
+
+Bootloader binary size 0x66a0 bytes. 0x960 bytes (8%) free.
+
+[4/4] Completed 'bootloader'Executing action: qemu
+Generating flash image: /project/lab7-1_Managed_Local_Component/build/qemu_flash.bin
+esptool.py --chip=esp32 merge_bin --output=/project/lab7-1_Managed_Local_Component/build/qemu_flash.bin --fill-flash-size=2MB --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 lab7-1.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.0
+SHA digest in image updated
+Wrote 0x200000 bytes to file /project/lab7-1_Managed_Local_Component/build/qemu_flash.bin, ready to flash to offset 0x0
+Generating efuse image: /project/lab7-1_Managed_Local_Component/build/qemu_efuse.bin
+Running qemu (bg): qemu-system-xtensa -M esp32 -m 4M -drive file=/project/lab7-1_Managed_Local_Component/build/qemu_flash.bin,if=mtd,format=raw -drive file=/project/lab7-1_Managed_Local_Component/build/qemu_efuse.bin,if=none,format=raw,id=efuse -global driver=nvram.esp32.efuse,property=drive,value=efuse -global driver=timer.esp32.timg,property=wdt_disable,value=true -nic user,model=open_eth -nographic -serial tcp::5555,server
+Executing action: monitor
+Running idf_monitor in directory /project/lab7-1_Managed_Local_Component
+Executing "/opt/esp/python_env/idf6.0_py3.12_env/bin/python /opt/esp/idf/tools/idf_monitor.py -p socket://localhost:5555 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /project/lab7-1_Managed_Local_Component/build/lab7-1.elf /project/lab7-1_Managed_Local_Component/build/bootloader/bootloader.elf -m '/opt/esp/python_env/idf6.0_py3.12_env/bin/python' '/opt/esp/idf/tools/idf.py'"...
+--- esp-idf-monitor 1.6.2 on socket://localhost:5555 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+
+I (8433) MAIN: === Loop 1 ===
+
+I (8433) DISPLAY: 🧹 Screen cleared from file: /project/components/Display/display.c, line: 28
+
+I (8433) DISPLAY: ✨ Display ready for new content
+
+I (8433) SENSOR: 📊 Reading sensor data from file: /project/components/Sensors/sensor.c, line: 20
+
+I (8433) SENSOR: 🌡️  Temperature: 30. 0°C
+
+I (8433) SENSOR: 💧 Humidity: 90.7%
+
+I (8433) DISPLAY: 📊 Data display from file: /project/components/Display/display.c, line: 21
+
+I (8433) DISPLAY: 📈 Value 1: 27.50
+
+I (8433) DISPLAY: 📉 Value 2: 62.00
+
+I (10433) MAIN: === Loop 2 ===
+
+I (10433) DISPLAY: 🧹 Screen cleared from file: /project/components/Display/display.c, line: 28
+
+I (10433) DISPLAY: ✨ Display ready for new content
+
+I (10433) SENSOR: 📊 Reading sensor data from file: /project/components/Sensors/sensor.c, line: 20
+
+I (10433) SENSOR: 🌡️  Tempe rature: 28.3°C
+
+I (10433) SENSOR: 💧 Humidity: 67.8%
+
+I (10433) DISPLAY: 📊 Data display from file: /project/components/Display/display.c, line: 21
+
+I (10433) DISPLAY: 📈 Value 1: 28.50
+
+I (10433) DISPLAY: 📉 Value 2: 63.00
+
+I (10433) SENSOR: ✅ Sensor status check from file: /project/components/Sensors/sensor.c, line: 32
+
+I (10433) SENSOR: 📈 All sensors operating normally
+
+I (10433) DISPLAY: 📢 Displaying from file: /project/components/Display/display.c, line: 15
+
+I (10433) DISPLAY: 📺 Message: Status Check Complete
