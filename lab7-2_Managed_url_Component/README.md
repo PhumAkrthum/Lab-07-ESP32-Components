@@ -196,3 +196,5 @@ I (14583) SENSOR: 💧 Humidity: 68.1%
 I (14583) DISPLAY: 📊 Data display from file: ./managed_components/lab7_components/Display/display.c, line: 21
 I (14583) DISPLAY: 📈 Value 1: 30.50
 I (14583) DISPLAY: 📉 Value 2: 65.00
+
+![alt text](7-2no-display.png)

@@ -78,6 +78,9 @@ I (15712) SENSOR: ✅ Sensor status check from file: /project/components/Sensors
 I (15712) SENSOR: 📈 All sensors operating normally
 
 
+![alt text](7-1no-display.png)
+
+
 # โจทย์ท้าทาย
 ## 1. สร้าง component ชื่อ Display โดย นำไฟล์ display.c และ display.h จากใบงานที่ 6 มาใช้
 สิ่งที่ต้องมีใน display component
@@ -169,3 +172,5 @@ I (10433) SENSOR: 📈 All sensors operating normally
 I (10433) DISPLAY: 📢 Displaying from file: /project/components/Display/display.c, line: 15
 
 I (10433) DISPLAY: 📺 Message: Status Check Complete
+
+![alt text](7-1-have-display.png)
