@@ -7,16 +7,16 @@
 ## สรุปคำสั่งที่ใช้ และผลลัพธ์ที่ได้
 
 ตอบ 
-# สร้างโฟลเดอร์หลัก components
+### สร้างโฟลเดอร์หลัก components
 mkdir -p components/Sensors
 mkdir -p components/Display
 
-# สร้างไฟล์สำหรับ Sensors
+### สร้างไฟล์สำหรับ Sensors
 touch components/Sensors/CMakeLists.txt
 touch components/Sensors/sensor.h
 touch components/Sensors/sensor.c
 
-# สร้างไฟล์สำหรับ Display
+### สร้างไฟล์สำหรับ Display
 touch components/Display/CMakeLists.txt
 touch components/Display/display.h
 touch components/Display/display.c
