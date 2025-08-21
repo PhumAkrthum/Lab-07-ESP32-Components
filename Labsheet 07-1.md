@@ -14,7 +14,7 @@
 
 ## การเตรียมความพร้อม
 
-### ขั้นตอนที่ 1: สร้าง Docker Environment
+### ขั้นตอนที่ 1: สร้าง Docker Environments
 เตรียมความพร้อมโดยการสร้างไฟล์ `docker-compose.yml`
 ```yml
 services:
